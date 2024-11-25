@@ -5,7 +5,6 @@ FROM php:8.1-apache
 RUN apt-get update && apt-get install -y \
     rrdtool \
     snmp \
-    snmp-mibs-downloader \
     libpng-dev \
     libxml2-dev \
     librrds-perl \
