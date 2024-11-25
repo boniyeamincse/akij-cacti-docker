@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS cacti;
+
+CREATE USER 'cactiuser'@'%' IDENTIFIED BY 'cactipass';
+GRANT ALL PRIVILEGES ON cacti.* TO 'cactiuser'@'%';
+FLUSH PRIVILEGES;

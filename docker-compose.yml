@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  cacti:
+    build: .
+    container_name: cacti-app
+    ports:
+      - "8080:80"
+    volumes:
+      - cacti-data:/var/www/html
+    environment:
+      - TZ=UTC
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:latest
+    container_name: cacti-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: cacti
+      MYSQL_USER: cactiuser
+      MYSQL_PASSWORD: cactipass
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  cacti-data:
+  db-data:
